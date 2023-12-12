@@ -1,0 +1,5 @@
+package com.fantasma.backend.service;
+
+public class CidadeService {
+
+}
