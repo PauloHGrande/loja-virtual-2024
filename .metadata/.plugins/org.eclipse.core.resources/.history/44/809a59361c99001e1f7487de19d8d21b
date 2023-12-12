@@ -50,8 +50,7 @@ public class Pessoa {
 	
 	public void setPermissaoPessoas(List<PermissaoPessoa> pp) {
 		for(PermissaoPessoa p:pp) {
-			p.setPessoa(this);
+			
 		}
-		this.permissaoPessoas = pp;
 	}
 }

@@ -15,9 +15,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import lombok.AccessLevel;
 import lombok.Data;
-import lombok.Setter;
 
 @Entity
 @Table(name = "pessoa")
@@ -40,18 +38,10 @@ public class Pessoa {
 	private Cidade cidade;
 	
 	@OneToMany(mappedBy = "pessoa", orphanRemoval = true, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-	@Setter(value = AccessLevel.NONE)
 	private List<PermissaoPessoa> permissaoPessoas;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataCriacao;
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataAtualizacao;
-	
-	public void setPermissaoPessoas(List<PermissaoPessoa> pp) {
-		for(PermissaoPessoa p:pp) {
-			p.setPessoa(this);
-		}
-		this.permissaoPessoas = pp;
-	}
 }
