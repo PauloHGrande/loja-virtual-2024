@@ -1,0 +1,5 @@
+package com.fantasma.backend.entity;
+
+public class Produto {
+
+}

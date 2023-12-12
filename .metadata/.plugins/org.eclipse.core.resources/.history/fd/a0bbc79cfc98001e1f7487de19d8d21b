@@ -1,0 +1,5 @@
+package com.fantasma.backend.controller;
+
+public class ProdutoController {
+
+}
