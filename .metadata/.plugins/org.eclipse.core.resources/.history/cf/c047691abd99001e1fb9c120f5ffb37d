@@ -18,6 +18,7 @@ public class PessoaClienteService {
 	@Autowired
 	private PermissaoPessoaService permissaoPessoaService;
 	
+	
 	public Pessoa registrar(PessoaClienteRequestDTO pessoaClienteRequestDTO) {
 		Pessoa pessoa = new PessoaClienteRequestDTO().converter(pessoaClienteRequestDTO);
 		pessoa.setDataCriacao(new Date());
