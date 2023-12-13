@@ -42,7 +42,7 @@ public class EmailService {
 		}
 	}
 	
-	public void enviarEmailTemplate(String destinatario, String titulo, Map<String, Object> propriedades) {
+	public void enviar(String destinatario, String titulo, Map<String, Object> propriedades) {
 		MimeMessage mimeMessage = javaMailSender.createMimeMessage();
 		try {
 			MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, true);
@@ -62,7 +62,7 @@ public class EmailService {
 	public String getConteudoTemplate(Map<String, Object> model) {
 		StringBuffer content = new StringBuffer();
 		try {
-			content.append(FreeMarkerTemplateUtils.processTemplateIntoString(frmConfiguration.getTemplate("email-recuperacao-codigo.flth"), model));
+			content.append(FreeMarkerTemplateUtils.processTemplateIntoString(template, model))
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
