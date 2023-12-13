@@ -1,7 +1,5 @@
 package com.fantasma.backend.service;
 
-import java.util.Map;
-
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
@@ -42,7 +40,7 @@ public class EmailService {
 		}
 	}
 	
-	public void enviarEmailTemplate(String destinatario, String titulo, Map<String, Object> propriedades) {
+	public void enviar(String destinatario, String titulo, Map<String, Object> propriedades) {
 		MimeMessage mimeMessage = javaMailSender.createMimeMessage();
 		try {
 			MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, true);
@@ -51,7 +49,7 @@ public class EmailService {
 			mimeMessageHelper.setFrom(remetente);
 			mimeMessageHelper.setTo(destinatario);
 			
-			mimeMessageHelper.setText(getConteudoTemplate(propriedades), true);
+			mimeMessageHelper.setText(geContentFromTemplate(propriedades), true);
 			
 			javaMailSender.send(mimeMessageHelper.getMimeMessage());
 		} catch (MessagingException e) {
@@ -59,10 +57,10 @@ public class EmailService {
 		}
 	}
 	
-	public String getConteudoTemplate(Map<String, Object> model) {
+	public String geConteudoTemplate(Map < String, Object > model) {
 		StringBuffer content = new StringBuffer();
 		try {
-			content.append(FreeMarkerTemplateUtils.processTemplateIntoString(frmConfiguration.getTemplate("email-recuperacao-codigo.flth"), model));
+			content.append(FreeMarkerTemplateUtils.processTemplateIntoString(template, model))
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
