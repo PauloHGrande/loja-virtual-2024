@@ -17,12 +17,18 @@ public class PessoaClienteService {
 	
 	@Autowired
 	private PermissaoPessoaService permissaoPessoaService;
+
+	@Autowired
+	private EmailService emailService;
 	
 	public Pessoa registrar(PessoaClienteRequestDTO pessoaClienteRequestDTO) {
 		Pessoa pessoa = new PessoaClienteRequestDTO().converter(pessoaClienteRequestDTO);
 		pessoa.setDataCriacao(new Date());
+		Pessoa novaPessoa = pessoaClienteRepository.saveAndFlush(pessoa);
 		permissaoPessoaService.vincularPessoaPermissaoCliente(pessoa);
-		return pessoaClienteRepository.saveAndFlush(pessoa);
+		emailService.enviarEmailTexto(pessoa.getEmail(), "Cadastro da Loja Fantasma...", 
+				"O Cadastro na Loja foi realizado com sucesso!, Em breve receberá a senha de acesso por e-mail!!!");
+		return novaPessoa;
 	}
 	
 }
