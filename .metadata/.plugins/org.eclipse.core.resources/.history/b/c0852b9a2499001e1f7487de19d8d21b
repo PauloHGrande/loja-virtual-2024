@@ -1,0 +1,5 @@
+package com.fantasma.backend.dto;
+
+public class PessoaClienteRequestDTO {
+
+}
