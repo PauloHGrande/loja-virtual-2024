@@ -1,4 +1,4 @@
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import Container from './Container'
 
@@ -9,7 +9,7 @@ function Navbar() {
     return (
       <nav className={styles.navbar}>
         <Container>
-            <Link>
+            <Link to="/">
                 <img src={logo} alt="Loja Fantasma"></img>
             </Link>
             <ul className={styles.list}>
