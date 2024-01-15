@@ -9,6 +9,7 @@ import Quiz from './components/pages/Quiz'
 import Question from './components/pages/Question'
 import GameOver from './components/pages/GameOver'
 import { QuizContext } from './context/quiz'
+import Cidade from './components/pages/cadastros/Cidade'
 
 import Container from './components/layout/Container'
 import Navbar from './components/layout/Navbar'
@@ -38,7 +39,8 @@ function App() {
             <Route path="/project/:id" element={<Project />} />  
             {quizState.gameStage === "Start" && <Route path="/quiz" element={<Quiz />} />}
             {quizState.gameStage === "Playing" && <Route path="/quiz" element={<Question />} />}    
-            {quizState.gameStage === "End" && <Route path="/quiz" element={<GameOver />} />}             
+            {quizState.gameStage === "End" && <Route path="/quiz" element={<GameOver />} />}  
+            <Route path="/cidade" element={<Cidade />} />             
         </Routes>
       </Container> 
       <Footer />
