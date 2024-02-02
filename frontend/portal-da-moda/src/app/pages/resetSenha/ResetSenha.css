@@ -1,0 +1,24 @@
+.form-login-container {
+    height: 100vh;
+}
+
+.form-signin {
+    width: 330px;
+    padding: 15px;
+    margin: auto;
+}
+
+.form-signin img {
+    width: 300px;
+}
+
+.form-signin input[type="email"] {
+    margin-bottom: 5px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.login-links a {
+    text-decoration: none;
+    font-size: 10pt;
+}
