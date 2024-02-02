@@ -1,0 +1,13 @@
+.btn-cor {
+    background-color: lightpink;
+    border: none;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    margin-top: 0px;
+    background-color:rosybrown;
+}

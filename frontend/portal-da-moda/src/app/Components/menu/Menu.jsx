@@ -1,25 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Context/Auth';
 import './Menu.css';
 
-//import { auth } from '../../Config/FireBase';
-//import { signOut } from 'firebase/auth';
+function Menu_old() {
 
-function Menu() {
+    const { setUsuarioLogado } = useContext(AuthContext);
 
-    //const handleLogout = async () => {
-    //    await signOut(auth);
-    //    localStorage.removeItem('token');
-    //    localStorage.removeItem('user');
-        // aqui faz o redirecionamento
-    //}
+    function Logout() {
+        setUsuarioLogado(false);
+        localStorage.removeItem("logado");
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+    }
 
     return (
         <nav className="navbar fixed-top navbar-expand-md navbar-dark">
 
             <div className="container-fluid">
                 
-                <a className="navbar-brand" href="/#">Portal da Moda</a>
+                <a className="navbar-brand" href="/">Portal da Moda</a>
 
                 <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
@@ -45,7 +45,7 @@ function Menu() {
                             </li>  
 
                             <li className="nav-item">
-                                <Link to="/app" className="nav-link active" aria-current="page">Sair</Link>
+                                <a href="#" onClick={Logout} className="nav-link active logout" aria-current="page">Sair</a>
                             </li>                                                                         
 
                         </ul>
@@ -60,4 +60,4 @@ function Menu() {
     );
 }
 
-export default Menu;
+export default Menu_old;

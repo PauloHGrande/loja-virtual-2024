@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import './Login.css';
+import { AuthContext } from '../../Context/Auth';
 
 import { auth } from '../../Config/FireBase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
@@ -10,6 +11,7 @@ function Login() {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const [sucesso, setSucesso] = useState('');
+    const {setUsuarioLogado} = useContext(AuthContext);
 
     const LoginUsuario = async (e) => {
         e.preventDefault();
@@ -18,8 +20,12 @@ function Login() {
             const user = userCredential.user;
             localStorage.setItem('token', user.accessToken);
             localStorage.setItem('user', JSON.stringify(user));
+            localStorage.setItem('logado', 'S');
+            setUsuarioLogado(true);
             setSucesso('S');
         } catch (error) {
+            localStorage.setItem('logado', 'N');
+            setUsuarioLogado(false);
             setSucesso('N');
         }
     }

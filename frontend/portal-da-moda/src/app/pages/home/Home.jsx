@@ -1,15 +1,18 @@
 import React from 'react';
-import Menu from '../../Components/menu/Menu';
+import AppMenu from '../../Components/menu/AppMenu';
 import './Home.css';
 
 function Home() {  
     
     return (
-        <div>
-            <Menu />
-            <div className="container-fluid titulo">
-                Home.......
+        <div className="AppPortalModa">
+
+            <AppMenu />
+            
+            <div className="container">
+                Conteudo do Home...
             </div>
+
         </div>
     );
 }

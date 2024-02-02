@@ -1,6 +1,6 @@
 import React, { useState, useEffect }  from 'react';
 import { Link } from 'react-router-dom';
-import Menu from '../../Components/menu/Menu';
+import AppMenu from '../../Components/menu/AppMenu';
 import ListarClientes from '../cliente/ListarClientes';
 import './Cliente.css';
 
@@ -50,7 +50,7 @@ function Cliente() {
     
     return (
         <div>
-            <Menu />
+            <AppMenu />
             <div className="container-fluid titulo">
                 <h1>Cadastro de Clientes...</h1>
                 <div className="row">
@@ -82,6 +82,7 @@ function Cliente() {
                         Deseja excluir o cliente selecionado?
                     </SweetAlert> : null }
             </div>
+
         </div>
     );
 }
